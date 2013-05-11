@@ -1,0 +1,2 @@
+    - name: 'BdooohProxy'
+      git: 'git://github.com/bdoooh/SiriProxy-Personal.git'
