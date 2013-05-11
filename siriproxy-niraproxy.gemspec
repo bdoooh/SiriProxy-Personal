@@ -2,15 +2,15 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "siriproxy-niraproxy"
-  s.version     = "0.5.0" 
-  s.authors     = ["Niranda"]
-  s.email       = ["admin@niranda.net"]
-  s.homepage    = "http://www.Niranda.net"
-  s.summary     = %q{A NiraProxy Plugin}
-  s.description = %q{This is a Plugin for SiriProxy to use the NiraProxy-API}
+  s.name        = "siriproxy-personal"
+  s.version     = "0.0.1" 
+  s.authors     = ["bdoooh"]
+  s.email       = ["brendan@brendanlogic.com"]
+  s.homepage    = "http://brendanlogic.com"
+  s.summary     = %q{A Brendan Do Plugin}
+  s.description = %q{This is a Plugin for developed for Brendan Do}
 
-  s.rubyforge_project = "siriproxy-niraproxy"
+  s.rubyforge_project = "siriproxy-personal"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
