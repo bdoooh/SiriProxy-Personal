@@ -15,7 +15,7 @@ class SiriProxy::Plugin::Personal < SiriProxy::Plugin
     #if you have custom configuration options, process them here!
   end
 
-  listen_for /is my plugin working/i do
+  listen_for /is my plug-in working/i do
     say "Yes, sir"
   end  
 end
