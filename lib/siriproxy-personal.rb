@@ -2,7 +2,7 @@ require 'cora'
 require 'siri_objects'
 require 'pp'
 require 'rubygems'
-require 'net-ssh'
+require 'net/ssh'
 
 #######
 # This is a "hello world" style plugin. It simply intercepts the phrase "test siri proxy" and responds
@@ -23,14 +23,8 @@ class SiriProxy::Plugin::Personal < SiriProxy::Plugin
 
   listen_for /restart the atv/i do
     say "Restarting the AppleTV, sir"
-    @hostname = "192.168.1.3"
-    @username = "root"
-    @password = "alpine"
-    @cmd = "reboot"
-
-    ssh = Net::SSH.start(@hostname, @username, :password => @password)
-    res = ssh.exec!(@cmd)
-    ssh.close
-    puts res
+    system 'ruby ~/test.rb'
+    say "AppleTV is restarting..."
+    request_completed
   end
 end
