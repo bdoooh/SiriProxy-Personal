@@ -2,7 +2,7 @@ require 'cora'
 require 'siri_objects'
 require 'pp'
 require 'rubygems'
-require 'net/ssh'
+require 'net-ssh'
 
 #######
 # This is a "hello world" style plugin. It simply intercepts the phrase "test siri proxy" and responds
