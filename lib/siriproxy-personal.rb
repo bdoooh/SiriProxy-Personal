@@ -19,10 +19,37 @@ class SiriProxy::Plugin::Personal < SiriProxy::Plugin
     say "Yes, sir"
   end
 
-  listen_for /restart the atv/i do
+  listen_for /restart the apple tv/i do
     say "Restarting the AppleTV, sir"
-    system 'php /home/brendan/restartAppleTV.php'
+    host = "192.168.1.3"
+    username = "root"
+    password = "alpine" # assuming all hosts have same user account and password of course
+    cmd = "reboot"
+    Net::SSH.start( host , username, :password => password) do |ssh|
+      puts ssh.exec! cmd
+    end
     say "AppleTV is restarting..."
     request_completed
   end
+
+  listen_for /turn corner lamp (on|off)/i do |status|
+    if(status == "on")
+      system 'echo "rf a1 on" | nc localhost 1099'
+      say "Corner lamp is on"
+    end
+    if(status == "off" )
+      system 'echo "rf a1 off" | nc localhost 1099'
+      say "Corner lamp is off"
+    end
+    request_completed
+  end
+
+=begin
+  listen_for /turn corner lamp off/i do
+    system 'echo "rf a1 off" | nc localhost 1099'
+    say "Corner lamp is off"
+    request_completed
+  end 
+=end
+
 end
